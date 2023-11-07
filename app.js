@@ -17,10 +17,13 @@ import cookieSession from 'cookie-session'
 import { validateTokenMiddleware } from './middlewares/protect.js'
 import cookieParser from 'cookie-parser'
 import test2Router from './apps/test2.js'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 async function init() {
   const app = express()
-  const port = 4000
+  const port = process.env.PORT || 4000
 
   app.use(cors())
   app.use(bodyParser.json())
